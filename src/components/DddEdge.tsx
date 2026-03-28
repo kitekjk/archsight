@@ -6,7 +6,7 @@ import { STATUS_COLORS } from "../styles/theme";
 
 function DddEdgeInner(props: EdgeProps) {
   const { sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data } = props;
-  const edgeData = data as unknown as ResolvedEdge;
+  const edgeData = data as unknown as ResolvedEdge & { isHighlighted?: boolean; isDimmed?: boolean };
 
   const [edgePath, labelX, labelY] = getBezierPath({ sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition });
 
@@ -14,19 +14,55 @@ function DddEdgeInner(props: EdgeProps) {
   const status = edgeData?.status ?? "existing";
   const statusColor = STATUS_COLORS[status];
 
+  const isHighlighted = edgeData?.isHighlighted ?? false;
+  const isDimmed = edgeData?.isDimmed ?? false;
+
   const isDashed = edgeType === "publishes" || edgeType === "subscribes" || edgeType === "implements";
   const isNew = status === "new";
-  const strokeColor = status === "existing" ? "#475569" : statusColor.border;
+
+  const strokeColor = isHighlighted
+    ? "#ef4444"
+    : status === "existing"
+    ? "#475569"
+    : statusColor.border;
+
+  const strokeWidth = isHighlighted ? 2.5 : status === "existing" ? 1 : 1.5;
   const strokeDasharray = isDashed || isNew ? "6 3" : undefined;
+  const opacity = isDimmed ? 0.15 : 1;
 
   const label = edgeData?.method ?? edgeData?.label;
+  const showLabel = label && !isDimmed;
 
   return (
     <>
-      <BaseEdge path={edgePath} style={{ stroke: strokeColor, strokeWidth: status === "existing" ? 1 : 1.5, strokeDasharray }} markerEnd={`url(#marker-${edgeType}-${status})`} />
-      {label && (
+      <BaseEdge
+        path={edgePath}
+        style={{
+          stroke: strokeColor,
+          strokeWidth,
+          strokeDasharray,
+          opacity,
+          transition: "opacity 0.15s ease, stroke 0.15s ease, stroke-width 0.15s ease",
+        }}
+        markerEnd={`url(#marker-${edgeType}-${status})`}
+      />
+      {showLabel && (
         <EdgeLabelRenderer>
-          <div style={{ position: "absolute", transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`, fontSize: 9, color: "#94a3b8", background: "#0f172a", padding: "1px 4px", borderRadius: 2, pointerEvents: "none", whiteSpace: "nowrap" }}>
+          <div
+            style={{
+              position: "absolute",
+              transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`,
+              fontSize: 9,
+              color: "#94a3b8",
+              background: "#0f172a",
+              padding: "1px 4px",
+              borderRadius: 2,
+              pointerEvents: "none",
+              whiteSpace: "nowrap",
+              opacity,
+              transition: "opacity 0.15s ease",
+            }}
+          >
             {label}
           </div>
         </EdgeLabelRenderer>
