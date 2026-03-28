@@ -1,5 +1,6 @@
 // src/components/DddLayerNode.tsx
 import { memo, useState, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { Handle, Position, type NodeProps } from "@xyflow/react";
 import type { DddNodeData } from "../hooks/useGraphLayout";
 import { STATUS_COLORS, LAYER_COLORS, TYPE_LABELS } from "../styles/theme";
@@ -18,7 +19,6 @@ function DddLayerNodeInner({ data }: NodeProps) {
   const isSelected = nodeData.isSelected as boolean | undefined;
   const isImpacted = nodeData.isImpacted as boolean | undefined;
   const isDimmed = nodeData.isDimmed as boolean | undefined;
-  const isExpanded = nodeData.isExpanded as boolean | undefined;
 
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
 
@@ -48,13 +48,6 @@ function DddLayerNodeInner({ data }: NodeProps) {
     : undefined;
 
   const opacity = isDimmed ? 0.3 : 1;
-
-  const modifiedMembers = nodeData.modifiedMembers as ResolvedNode["modifiedMembers"] | undefined;
-  const reviewPoints = nodeData.reviewPoints as ResolvedNode["reviewPoints"] | undefined;
-  const criticalReviews = reviewPoints?.filter((rp) => rp.severity === "critical").length ?? 0;
-  const totalReviews = reviewPoints?.length ?? 0;
-
-  const showTooltip = tooltipPos !== null && !isExpanded;
 
   return (
     <>
@@ -95,53 +88,12 @@ function DddLayerNodeInner({ data }: NodeProps) {
             {nodeData.subtitle}
           </div>
         )}
-
-        {/* Expanded: modifiedMembers + reviewPoints */}
-        {isExpanded && (
-          <div style={{ marginTop: 8, borderTop: "1px solid #334155", paddingTop: 6 }}>
-            {modifiedMembers && (
-              <>
-                {modifiedMembers.added && modifiedMembers.added.length > 0 && (
-                  <div style={{ marginBottom: 4 }}>
-                    <div style={{ fontSize: 8, color: "#4ade80", textTransform: "uppercase", marginBottom: 2 }}>Added</div>
-                    {modifiedMembers.added.map((m, i) => (
-                      <div key={i} style={{ fontSize: 10, color: "#4ade80", fontFamily: "monospace", lineHeight: 1.5 }}>+ {m}</div>
-                    ))}
-                  </div>
-                )}
-                {modifiedMembers.changed && modifiedMembers.changed.length > 0 && (
-                  <div style={{ marginBottom: 4 }}>
-                    <div style={{ fontSize: 8, color: "#fbbf24", textTransform: "uppercase", marginBottom: 2 }}>Changed</div>
-                    {modifiedMembers.changed.map((m, i) => (
-                      <div key={i} style={{ fontSize: 10, color: "#fbbf24", fontFamily: "monospace", lineHeight: 1.5 }}>~ {m}</div>
-                    ))}
-                  </div>
-                )}
-                {modifiedMembers.removed && modifiedMembers.removed.length > 0 && (
-                  <div style={{ marginBottom: 4 }}>
-                    <div style={{ fontSize: 8, color: "#f87171", textTransform: "uppercase", marginBottom: 2 }}>Removed</div>
-                    {modifiedMembers.removed.map((m, i) => (
-                      <div key={i} style={{ fontSize: 10, color: "#f87171", fontFamily: "monospace", lineHeight: 1.5, textDecoration: "line-through" }}>- {m}</div>
-                    ))}
-                  </div>
-                )}
-              </>
-            )}
-            {totalReviews > 0 && (
-              <div style={{ marginTop: 4, display: "flex", alignItems: "center", gap: 4 }}>
-                <span style={{ fontSize: 9, color: criticalReviews > 0 ? "#f87171" : "#94a3b8" }}>
-                  {criticalReviews > 0 ? `${criticalReviews} critical` : ""}{criticalReviews > 0 && totalReviews > criticalReviews ? ", " : ""}
-                  {totalReviews - criticalReviews > 0 ? `${totalReviews - criticalReviews} review${totalReviews - criticalReviews > 1 ? "s" : ""}` : ""}
-                </span>
-              </div>
-            )}
-          </div>
-        )}
       </div>
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
 
-      {showTooltip && tooltipPos && (
-        <NodeTooltip node={nodeData as unknown as ResolvedNode} x={tooltipPos.x} y={tooltipPos.y} />
+      {tooltipPos && createPortal(
+        <NodeTooltip node={nodeData as unknown as ResolvedNode} x={tooltipPos.x} y={tooltipPos.y} />,
+        document.body
       )}
     </>
   );
