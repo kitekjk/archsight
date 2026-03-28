@@ -9,7 +9,8 @@
     "url": "https://github.com/user/archsight"
   },
   "scripts": {
-    "dev": "storybook dev -p 6006",
+    "dev": "vite",
+    "storybook": "storybook dev -p 6006",
     "build": "tsc && vite build",
     "lint": "eslint src/",
     "type-check": "tsc --noEmit",
