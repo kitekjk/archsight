@@ -1,0 +1,6 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.storybook/
+storybook-static/
+.DS_Store

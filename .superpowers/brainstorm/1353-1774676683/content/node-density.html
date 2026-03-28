@@ -1,0 +1,102 @@
+<h2>노드 정보 밀도</h2>
+<p class="subtitle">각 노드에 어느 정도의 정보를 보여줄까요? ChangeSet 적용 시 변경 상태(색상)가 추가됩니다.</p>
+
+<div class="cards">
+  <!-- Option A: Minimal -->
+  <div class="card" data-choice="minimal" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1a1a2e;padding:32px;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;min-height:200px">
+      <!-- Minimal nodes -->
+      <div style="background:#2a2a4a;border:1px solid #6b7280;border-radius:6px;padding:10px 16px;color:#e0e0e0;text-align:center;font-family:monospace;font-size:12px;min-width:100px">
+        <div style="font-size:9px;color:#818cf8;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">controller</div>
+        OrderController
+      </div>
+      <div style="background:#2a2a4a;border:2px solid #22c55e;border-radius:6px;padding:10px 16px;color:#e0e0e0;text-align:center;font-family:monospace;font-size:12px;min-width:100px;border-style:dashed">
+        <div style="font-size:9px;color:#4ade80;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">usecase</div>
+        CancelOrderUC
+      </div>
+      <div style="background:#2a2a4a;border:2px solid #f59e0b;border-radius:6px;padding:10px 16px;color:#e0e0e0;text-align:center;font-family:monospace;font-size:12px;min-width:100px">
+        <div style="font-size:9px;color:#fbbf24;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px">aggregate</div>
+        <strong>Order</strong>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. 미니멀</h3>
+      <p>타입 라벨 + 이름만. 작고 깔끔. 노드가 많아도 한눈에 전체 구조가 보임. <strong>상세는 클릭 시 사이드 패널에서 확인.</strong></p>
+    </div>
+  </div>
+
+  <!-- Option B: Compact -->
+  <div class="card" data-choice="compact" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1a1a2e;padding:32px;display:flex;gap:16px;justify-content:center;align-items:start;flex-wrap:wrap;min-height:200px">
+      <!-- Compact nodes -->
+      <div style="background:#2a2a4a;border:1px solid #6b7280;border-radius:6px;padding:10px 14px;color:#e0e0e0;font-family:monospace;font-size:12px;min-width:140px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+          <span style="font-size:9px;color:#818cf8;text-transform:uppercase;letter-spacing:1px">controller</span>
+          <span style="font-size:8px;background:#374151;color:#9ca3af;padding:1px 5px;border-radius:3px">existing</span>
+        </div>
+        <div style="font-weight:bold;margin-bottom:2px">OrderController</div>
+        <div style="font-size:10px;color:#9ca3af">REST API endpoint</div>
+      </div>
+      <div style="background:#2a2a4a;border:2px dashed #22c55e;border-radius:6px;padding:10px 14px;color:#e0e0e0;font-family:monospace;font-size:12px;min-width:140px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+          <span style="font-size:9px;color:#4ade80;text-transform:uppercase;letter-spacing:1px">usecase</span>
+          <span style="font-size:8px;background:#064e3b;color:#34d399;padding:1px 5px;border-radius:3px">new</span>
+        </div>
+        <div style="font-weight:bold;margin-bottom:2px">CancelOrderUC</div>
+        <div style="font-size:10px;color:#9ca3af">주문 취소</div>
+      </div>
+      <div style="background:#2a2a4a;border:2px solid #f59e0b;border-radius:6px;padding:10px 14px;color:#e0e0e0;font-family:monospace;font-size:12px;min-width:140px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+          <span style="font-size:9px;color:#fbbf24;text-transform:uppercase;letter-spacing:1px">aggregate</span>
+          <span style="font-size:8px;background:#78350f;color:#fbbf24;padding:1px 5px;border-radius:3px">modified</span>
+        </div>
+        <div style="font-weight:bold;margin-bottom:2px">Order</div>
+        <div style="font-size:10px;color:#9ca3af">Aggregate Root</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. 컴팩트 (추천)</h3>
+      <p>타입 + 이름 + subtitle + 상태 배지. 클릭 없이도 핵심 정보를 즉시 파악. <strong>정보와 가독성의 균형.</strong></p>
+    </div>
+  </div>
+
+  <!-- Option C: Rich -->
+  <div class="card" data-choice="rich" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#1a1a2e;padding:24px;display:flex;gap:16px;justify-content:center;align-items:start;flex-wrap:wrap;min-height:200px">
+      <!-- Rich nodes -->
+      <div style="background:#2a2a4a;border:2px solid #f59e0b;border-radius:6px;color:#e0e0e0;font-family:monospace;font-size:11px;min-width:200px;max-width:220px">
+        <div style="background:#78350f;padding:6px 10px;border-radius:4px 4px 0 0;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:9px;color:#fbbf24;text-transform:uppercase;letter-spacing:1px">aggregate</span>
+          <span style="font-size:8px;background:#451a03;color:#fbbf24;padding:1px 5px;border-radius:3px">modified</span>
+        </div>
+        <div style="padding:8px 10px">
+          <div style="font-weight:bold;font-size:13px;margin-bottom:2px">Order</div>
+          <div style="font-size:10px;color:#9ca3af;margin-bottom:6px">Aggregate Root</div>
+          <div style="border-top:1px solid #374151;padding-top:6px;font-size:9px;color:#9ca3af">
+            <div style="color:#4ade80">+ cancel(reason): void</div>
+            <div style="color:#fbbf24">~ canTransitionTo()</div>
+            <div style="margin-top:4px;color:#fb7185">⚠ 2 review points</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:#2a2a4a;border:2px dashed #22c55e;border-radius:6px;color:#e0e0e0;font-family:monospace;font-size:11px;min-width:200px;max-width:220px">
+        <div style="background:#064e3b;padding:6px 10px;border-radius:4px 4px 0 0;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:9px;color:#4ade80;text-transform:uppercase;letter-spacing:1px">usecase</span>
+          <span style="font-size:8px;background:#022c22;color:#34d399;padding:1px 5px;border-radius:3px">new</span>
+        </div>
+        <div style="padding:8px 10px">
+          <div style="font-weight:bold;font-size:13px;margin-bottom:2px">CancelOrderUC</div>
+          <div style="font-size:10px;color:#9ca3af;margin-bottom:6px">주문 취소</div>
+          <div style="border-top:1px solid #374151;padding-top:6px;font-size:9px;color:#9ca3af">
+            <div>execute(cmd): Unit</div>
+            <div style="margin-top:4px;color:#fb7185">⚠ 3 review points</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. 리치</h3>
+      <p>헤더 바 + 이름 + subtitle + modifiedMembers + reviewPoints 카운트. 클릭 없이 변경 내용까지 보임. <strong>ChangeSet 리뷰에 최적.</strong></p>
+    </div>
+  </div>
+</div>
