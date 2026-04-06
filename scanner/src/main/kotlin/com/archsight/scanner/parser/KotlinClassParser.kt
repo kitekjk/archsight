@@ -43,7 +43,10 @@ class KotlinClassParser : AutoCloseable {
     }
 
     fun parse(sourceCode: String, filePath: String): ClassMetadata {
-        val ktFile: KtFile = psiFactory.createFile(filePath, sourceCode)
+        // Normalize CRLF to LF — the Kotlin PSI doesn't handle Windows line endings
+        // correctly for annotation extraction when classes span many lines
+        val normalizedSource = sourceCode.replace("\r\n", "\n").replace("\r", "\n")
+        val ktFile: KtFile = psiFactory.createFile(filePath, normalizedSource)
 
         val packageName = ktFile.packageFqName.asString()
 
