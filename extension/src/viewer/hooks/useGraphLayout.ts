@@ -85,7 +85,9 @@ export function computeLayout(resolved: ResolvedGraph): LayoutResult {
     const { width, height } = estimateNodeSize(node.label, node.subtitle);
     g.setNode(node.id, { width, height });
     const anchorId = `__anchor_${node.layer}`;
-    g.setEdge(anchorId, node.id, { weight: 2, minlen: 1 });
+    // weight를 높여서 같은 레이어의 anchor에 강하게 묶음
+    g.setEdge(anchorId, node.id, { weight: 10, minlen: 0 });
+    g.setEdge(node.id, anchorId, { weight: 10, minlen: 0 });
   }
 
   // Add real edges — only forward-direction (same or higher layer order)
