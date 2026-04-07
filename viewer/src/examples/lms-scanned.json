@@ -1,0 +1,2266 @@
+{
+  "context" : {
+    "id" : "lms-demo",
+    "name" : "lms-demo",
+    "description" : null,
+    "team" : null
+  },
+  "layers" : [ {
+    "id" : "presentation",
+    "displayName" : "Presentation",
+    "order" : 0
+  }, {
+    "id" : "application",
+    "displayName" : "Application",
+    "order" : 1
+  }, {
+    "id" : "domain",
+    "displayName" : "Domain",
+    "order" : 2
+  }, {
+    "id" : "infrastructure",
+    "displayName" : "Infrastructure",
+    "order" : 3
+  } ],
+  "nodes" : [ {
+    "id" : "domain-context",
+    "label" : "DomainContext",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/common/DomainContext.kt",
+      "className" : "DomainContext",
+      "packageName" : "com.lms.domain.common"
+    }
+  }, {
+    "id" : "attendance-record",
+    "label" : "AttendanceRecord",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/attendance/AttendanceRecord.kt",
+      "className" : "AttendanceRecord",
+      "packageName" : "com.lms.domain.model.attendance"
+    }
+  }, {
+    "id" : "attendance-record-id",
+    "label" : "AttendanceRecordId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/attendance/AttendanceRecordId.kt",
+      "className" : "AttendanceRecordId",
+      "packageName" : "com.lms.domain.model.attendance",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "attendance-record-repository",
+    "label" : "AttendanceRecordRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/attendance/AttendanceRecordRepository.kt",
+      "className" : "AttendanceRecordRepository",
+      "packageName" : "com.lms.domain.model.attendance"
+    }
+  }, {
+    "id" : "attendance-status",
+    "label" : "AttendanceStatus",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/attendance/AttendanceStatus.kt",
+      "className" : "AttendanceStatus",
+      "packageName" : "com.lms.domain.model.attendance"
+    }
+  }, {
+    "id" : "attendance-time",
+    "label" : "AttendanceTime",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/attendance/AttendanceTime.kt",
+      "className" : "AttendanceTime",
+      "packageName" : "com.lms.domain.model.attendance"
+    }
+  }, {
+    "id" : "action-type",
+    "label" : "ActionType",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/auditlog/ActionType.kt",
+      "className" : "ActionType",
+      "packageName" : "com.lms.domain.model.auditlog"
+    }
+  }, {
+    "id" : "audit-log",
+    "label" : "AuditLog",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/auditlog/AuditLog.kt",
+      "className" : "AuditLog",
+      "packageName" : "com.lms.domain.model.auditlog"
+    }
+  }, {
+    "id" : "audit-log-id",
+    "label" : "AuditLogId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/auditlog/AuditLogId.kt",
+      "className" : "AuditLogId",
+      "packageName" : "com.lms.domain.model.auditlog",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "audit-log-repository",
+    "label" : "AuditLogRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/auditlog/AuditLogRepository.kt",
+      "className" : "AuditLogRepository",
+      "packageName" : "com.lms.domain.model.auditlog"
+    }
+  }, {
+    "id" : "entity-type",
+    "label" : "EntityType",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/auditlog/EntityType.kt",
+      "className" : "EntityType",
+      "packageName" : "com.lms.domain.model.auditlog"
+    }
+  }, {
+    "id" : "token-provider",
+    "label" : "TokenProvider",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/auth/TokenProvider.kt",
+      "className" : "TokenProvider",
+      "packageName" : "com.lms.domain.model.auth"
+    }
+  }, {
+    "id" : "employee",
+    "label" : "Employee",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/employee/Employee.kt",
+      "className" : "Employee",
+      "packageName" : "com.lms.domain.model.employee"
+    }
+  }, {
+    "id" : "employee-id",
+    "label" : "EmployeeId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/employee/EmployeeId.kt",
+      "className" : "EmployeeId",
+      "packageName" : "com.lms.domain.model.employee",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "employee-name",
+    "label" : "EmployeeName",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/employee/EmployeeName.kt",
+      "className" : "EmployeeName",
+      "packageName" : "com.lms.domain.model.employee",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "employee-repository",
+    "label" : "EmployeeRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/employee/EmployeeRepository.kt",
+      "className" : "EmployeeRepository",
+      "packageName" : "com.lms.domain.model.employee"
+    }
+  }, {
+    "id" : "employee-type",
+    "label" : "EmployeeType",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/employee/EmployeeType.kt",
+      "className" : "EmployeeType",
+      "packageName" : "com.lms.domain.model.employee"
+    }
+  }, {
+    "id" : "remaining-leave",
+    "label" : "RemainingLeave",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/employee/RemainingLeave.kt",
+      "className" : "RemainingLeave",
+      "packageName" : "com.lms.domain.model.employee",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "leave-period",
+    "label" : "LeavePeriod",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/leave/LeavePeriod.kt",
+      "className" : "LeavePeriod",
+      "packageName" : "com.lms.domain.model.leave"
+    }
+  }, {
+    "id" : "leave-request-id",
+    "label" : "LeaveRequestId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/leave/LeaveRequestId.kt",
+      "className" : "LeaveRequestId",
+      "packageName" : "com.lms.domain.model.leave",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "leave-request-repository",
+    "label" : "LeaveRequestRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/leave/LeaveRequestRepository.kt",
+      "className" : "LeaveRequestRepository",
+      "packageName" : "com.lms.domain.model.leave"
+    }
+  }, {
+    "id" : "leave-status",
+    "label" : "LeaveStatus",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/leave/LeaveStatus.kt",
+      "className" : "LeaveStatus",
+      "packageName" : "com.lms.domain.model.leave"
+    }
+  }, {
+    "id" : "leave-type",
+    "label" : "LeaveType",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/leave/LeaveType.kt",
+      "className" : "LeaveType",
+      "packageName" : "com.lms.domain.model.leave"
+    }
+  }, {
+    "id" : "payroll",
+    "label" : "Payroll",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/Payroll.kt",
+      "className" : "Payroll",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "payroll-amount",
+    "label" : "PayrollAmount",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollAmount.kt",
+      "className" : "PayrollAmount",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "payroll-batch-history",
+    "label" : "PayrollBatchHistory",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollBatchHistory.kt",
+      "className" : "PayrollBatchHistory",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "payroll-batch-history-repository",
+    "label" : "PayrollBatchHistoryRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollBatchHistoryRepository.kt",
+      "className" : "PayrollBatchHistoryRepository",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "payroll-detail",
+    "label" : "PayrollDetail",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollDetail.kt",
+      "className" : "PayrollDetail",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "payroll-detail-id",
+    "label" : "PayrollDetailId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollDetailId.kt",
+      "className" : "PayrollDetailId",
+      "packageName" : "com.lms.domain.model.payroll",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "payroll-detail-repository",
+    "label" : "PayrollDetailRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollDetailRepository.kt",
+      "className" : "PayrollDetailRepository",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "payroll-id",
+    "label" : "PayrollId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollId.kt",
+      "className" : "PayrollId",
+      "packageName" : "com.lms.domain.model.payroll",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "payroll-period",
+    "label" : "PayrollPeriod",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollPeriod.kt",
+      "className" : "PayrollPeriod",
+      "packageName" : "com.lms.domain.model.payroll",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "payroll-policy",
+    "label" : "PayrollPolicy",
+    "type" : "policy",
+    "layer" : "domain",
+    "subtitle" : "Policy / Event Handler",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollPolicy.kt",
+      "className" : "PayrollPolicy",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "payroll-policy-id",
+    "label" : "PayrollPolicyId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollPolicyId.kt",
+      "className" : "PayrollPolicyId",
+      "packageName" : "com.lms.domain.model.payroll",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "payroll-policy-repository",
+    "label" : "PayrollPolicyRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollPolicyRepository.kt",
+      "className" : "PayrollPolicyRepository",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "payroll-repository",
+    "label" : "PayrollRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PayrollRepository.kt",
+      "className" : "PayrollRepository",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "policy-effective-period",
+    "label" : "PolicyEffectivePeriod",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PolicyEffectivePeriod.kt",
+      "className" : "PolicyEffectivePeriod",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "policy-multiplier",
+    "label" : "PolicyMultiplier",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PolicyMultiplier.kt",
+      "className" : "PolicyMultiplier",
+      "packageName" : "com.lms.domain.model.payroll",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "policy-type",
+    "label" : "PolicyType",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/PolicyType.kt",
+      "className" : "PolicyType",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "work-type",
+    "label" : "WorkType",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/payroll/WorkType.kt",
+      "className" : "WorkType",
+      "packageName" : "com.lms.domain.model.payroll"
+    }
+  }, {
+    "id" : "work-date",
+    "label" : "WorkDate",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/schedule/WorkDate.kt",
+      "className" : "WorkDate",
+      "packageName" : "com.lms.domain.model.schedule",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "work-schedule",
+    "label" : "WorkSchedule",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/schedule/WorkSchedule.kt",
+      "className" : "WorkSchedule",
+      "packageName" : "com.lms.domain.model.schedule"
+    }
+  }, {
+    "id" : "work-schedule-id",
+    "label" : "WorkScheduleId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/schedule/WorkScheduleId.kt",
+      "className" : "WorkScheduleId",
+      "packageName" : "com.lms.domain.model.schedule",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "work-schedule-repository",
+    "label" : "WorkScheduleRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/schedule/WorkScheduleRepository.kt",
+      "className" : "WorkScheduleRepository",
+      "packageName" : "com.lms.domain.model.schedule"
+    }
+  }, {
+    "id" : "work-time",
+    "label" : "WorkTime",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/schedule/WorkTime.kt",
+      "className" : "WorkTime",
+      "packageName" : "com.lms.domain.model.schedule"
+    }
+  }, {
+    "id" : "store",
+    "label" : "Store",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/store/Store.kt",
+      "className" : "Store",
+      "packageName" : "com.lms.domain.model.store"
+    }
+  }, {
+    "id" : "store-id",
+    "label" : "StoreId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/store/StoreId.kt",
+      "className" : "StoreId",
+      "packageName" : "com.lms.domain.model.store",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "store-location",
+    "label" : "StoreLocation",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/store/StoreLocation.kt",
+      "className" : "StoreLocation",
+      "packageName" : "com.lms.domain.model.store",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "store-name",
+    "label" : "StoreName",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/store/StoreName.kt",
+      "className" : "StoreName",
+      "packageName" : "com.lms.domain.model.store",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "store-repository",
+    "label" : "StoreRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/store/StoreRepository.kt",
+      "className" : "StoreRepository",
+      "packageName" : "com.lms.domain.model.store"
+    }
+  }, {
+    "id" : "email",
+    "label" : "Email",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/user/Email.kt",
+      "className" : "Email",
+      "packageName" : "com.lms.domain.model.user",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "password",
+    "label" : "Password",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/user/Password.kt",
+      "className" : "Password",
+      "packageName" : "com.lms.domain.model.user",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "role",
+    "label" : "Role",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/user/Role.kt",
+      "className" : "Role",
+      "packageName" : "com.lms.domain.model.user"
+    }
+  }, {
+    "id" : "user",
+    "label" : "User",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/user/User.kt",
+      "className" : "User",
+      "packageName" : "com.lms.domain.model.user"
+    }
+  }, {
+    "id" : "user-id",
+    "label" : "UserId",
+    "type" : "value_object",
+    "layer" : "domain",
+    "subtitle" : "Value Object",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/user/UserId.kt",
+      "className" : "UserId",
+      "packageName" : "com.lms.domain.model.user",
+      "annotations" : [ "@JvmInline" ]
+    }
+  }, {
+    "id" : "user-repository",
+    "label" : "UserRepository",
+    "type" : "repository",
+    "layer" : "domain",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/model/user/UserRepository.kt",
+      "className" : "UserRepository",
+      "packageName" : "com.lms.domain.model.user"
+    }
+  }, {
+    "id" : "leave-policy-service",
+    "label" : "LeavePolicyService",
+    "type" : "domain_service",
+    "layer" : "domain",
+    "subtitle" : "Domain Service",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/service/LeavePolicyService.kt",
+      "className" : "LeavePolicyService",
+      "packageName" : "com.lms.domain.service"
+    }
+  }, {
+    "id" : "payroll-calculation-engine",
+    "label" : "PayrollCalculationEngine",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "domain/src/main/kotlin/com/lms/domain/service/PayrollCalculationEngine.kt",
+      "className" : "PayrollCalculationEngine",
+      "packageName" : "com.lms.domain.service"
+    }
+  }, {
+    "id" : "adjust-attendance-app-service",
+    "label" : "AdjustAttendanceAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Adjust Attendance",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/attendance/AdjustAttendanceAppService.kt",
+      "className" : "AdjustAttendanceAppService",
+      "packageName" : "com.lms.application.attendance",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "check-in-app-service",
+    "label" : "CheckInAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Check In",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/attendance/CheckInAppService.kt",
+      "className" : "CheckInAppService",
+      "packageName" : "com.lms.application.attendance",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "check-out-app-service",
+    "label" : "CheckOutAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Check Out",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/attendance/CheckOutAppService.kt",
+      "className" : "CheckOutAppService",
+      "packageName" : "com.lms.application.attendance",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-attendance-record-app-service",
+    "label" : "GetAttendanceRecordAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Attendance Record",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/attendance/GetAttendanceRecordAppService.kt",
+      "className" : "GetAttendanceRecordAppService",
+      "packageName" : "com.lms.application.attendance",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-attendance-records-by-store-app-service",
+    "label" : "GetAttendanceRecordsByStoreAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Attendance Records By Store",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/attendance/GetAttendanceRecordsByStoreAppService.kt",
+      "className" : "GetAttendanceRecordsByStoreAppService",
+      "packageName" : "com.lms.application.attendance",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-my-attendance-records-app-service",
+    "label" : "GetMyAttendanceRecordsAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get My Attendance Records",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/attendance/GetMyAttendanceRecordsAppService.kt",
+      "className" : "GetMyAttendanceRecordsAppService",
+      "packageName" : "com.lms.application.attendance",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "login-app-service",
+    "label" : "LoginAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Login",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/auth/LoginAppService.kt",
+      "className" : "LoginAppService",
+      "packageName" : "com.lms.application.auth",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "refresh-token-app-service",
+    "label" : "RefreshTokenAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Refresh Token",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/auth/RefreshTokenAppService.kt",
+      "className" : "RefreshTokenAppService",
+      "packageName" : "com.lms.application.auth",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "register-app-service",
+    "label" : "RegisterAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Register",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/auth/RegisterAppService.kt",
+      "className" : "RegisterAppService",
+      "packageName" : "com.lms.application.auth",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "create-employee-app-service",
+    "label" : "CreateEmployeeAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Create Employee",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/employee/CreateEmployeeAppService.kt",
+      "className" : "CreateEmployeeAppService",
+      "packageName" : "com.lms.application.employee",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "deactivate-employee-app-service",
+    "label" : "DeactivateEmployeeAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Deactivate Employee",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/employee/DeactivateEmployeeAppService.kt",
+      "className" : "DeactivateEmployeeAppService",
+      "packageName" : "com.lms.application.employee",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-all-employees-app-service",
+    "label" : "GetAllEmployeesAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get All Employees",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/employee/GetAllEmployeesAppService.kt",
+      "className" : "GetAllEmployeesAppService",
+      "packageName" : "com.lms.application.employee",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-employee-app-service",
+    "label" : "GetEmployeeAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Employee",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/employee/GetEmployeeAppService.kt",
+      "className" : "GetEmployeeAppService",
+      "packageName" : "com.lms.application.employee",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-employees-by-store-app-service",
+    "label" : "GetEmployeesByStoreAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Employees By Store",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/employee/GetEmployeesByStoreAppService.kt",
+      "className" : "GetEmployeesByStoreAppService",
+      "packageName" : "com.lms.application.employee",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "update-employee-app-service",
+    "label" : "UpdateEmployeeAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Update Employee",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/employee/UpdateEmployeeAppService.kt",
+      "className" : "UpdateEmployeeAppService",
+      "packageName" : "com.lms.application.employee",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "approve-leave-request-app-service",
+    "label" : "ApproveLeaveRequestAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Approve Leave Request",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/leave/ApproveLeaveRequestAppService.kt",
+      "className" : "ApproveLeaveRequestAppService",
+      "packageName" : "com.lms.application.leave",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "cancel-leave-request-app-service",
+    "label" : "CancelLeaveRequestAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Cancel Leave Request",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/leave/CancelLeaveRequestAppService.kt",
+      "className" : "CancelLeaveRequestAppService",
+      "packageName" : "com.lms.application.leave",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "create-leave-request-app-service",
+    "label" : "CreateLeaveRequestAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Create Leave Request",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/leave/CreateLeaveRequestAppService.kt",
+      "className" : "CreateLeaveRequestAppService",
+      "packageName" : "com.lms.application.leave",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-leave-requests-by-store-app-service",
+    "label" : "GetLeaveRequestsByStoreAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Leave Requests By Store",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/leave/GetLeaveRequestsByStoreAppService.kt",
+      "className" : "GetLeaveRequestsByStoreAppService",
+      "packageName" : "com.lms.application.leave",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-my-leave-requests-app-service",
+    "label" : "GetMyLeaveRequestsAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get My Leave Requests",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/leave/GetMyLeaveRequestsAppService.kt",
+      "className" : "GetMyLeaveRequestsAppService",
+      "packageName" : "com.lms.application.leave",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-pending-leave-requests-app-service",
+    "label" : "GetPendingLeaveRequestsAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Pending Leave Requests",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/leave/GetPendingLeaveRequestsAppService.kt",
+      "className" : "GetPendingLeaveRequestsAppService",
+      "packageName" : "com.lms.application.leave",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "reject-leave-request-app-service",
+    "label" : "RejectLeaveRequestAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Reject Leave Request",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/leave/RejectLeaveRequestAppService.kt",
+      "className" : "RejectLeaveRequestAppService",
+      "packageName" : "com.lms.application.leave",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "calculate-payroll-app-service",
+    "label" : "CalculatePayrollAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Calculate Payroll",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/CalculatePayrollAppService.kt",
+      "className" : "CalculatePayrollAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "create-payroll-policy-app-service",
+    "label" : "CreatePayrollPolicyAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Create Payroll Policy",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/CreatePayrollPolicyAppService.kt",
+      "className" : "CreatePayrollPolicyAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "delete-payroll-policy-app-service",
+    "label" : "DeletePayrollPolicyAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Delete Payroll Policy",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/DeletePayrollPolicyAppService.kt",
+      "className" : "DeletePayrollPolicyAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "execute-payroll-batch-app-service",
+    "label" : "ExecutePayrollBatchAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Execute Payroll Batch",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/ExecutePayrollBatchAppService.kt",
+      "className" : "ExecutePayrollBatchAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-my-payroll-app-service",
+    "label" : "GetMyPayrollAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get My Payroll",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/GetMyPayrollAppService.kt",
+      "className" : "GetMyPayrollAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-payroll-app-service",
+    "label" : "GetPayrollAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Payroll",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/GetPayrollAppService.kt",
+      "className" : "GetPayrollAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-payroll-batch-histories-app-service",
+    "label" : "GetPayrollBatchHistoriesAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Payroll Batch Histories",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/GetPayrollBatchHistoriesAppService.kt",
+      "className" : "GetPayrollBatchHistoriesAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-payroll-policies-app-service",
+    "label" : "GetPayrollPoliciesAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Payroll Policies",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/GetPayrollPoliciesAppService.kt",
+      "className" : "GetPayrollPoliciesAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-payrolls-by-period-app-service",
+    "label" : "GetPayrollsByPeriodAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Payrolls By Period",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/GetPayrollsByPeriodAppService.kt",
+      "className" : "GetPayrollsByPeriodAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "payroll-batch-scheduler",
+    "label" : "PayrollBatchScheduler",
+    "type" : "adapter",
+    "layer" : "infrastructure",
+    "subtitle" : "Infrastructure Adapter",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/PayrollBatchScheduler.kt",
+      "className" : "PayrollBatchScheduler",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Component" ]
+    }
+  }, {
+    "id" : "update-payroll-policy-app-service",
+    "label" : "UpdatePayrollPolicyAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Update Payroll Policy",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/payroll/UpdatePayrollPolicyAppService.kt",
+      "className" : "UpdatePayrollPolicyAppService",
+      "packageName" : "com.lms.application.payroll",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "create-work-schedule-app-service",
+    "label" : "CreateWorkScheduleAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Create Work Schedule",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/schedule/CreateWorkScheduleAppService.kt",
+      "className" : "CreateWorkScheduleAppService",
+      "packageName" : "com.lms.application.schedule",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "delete-work-schedule-app-service",
+    "label" : "DeleteWorkScheduleAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Delete Work Schedule",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/schedule/DeleteWorkScheduleAppService.kt",
+      "className" : "DeleteWorkScheduleAppService",
+      "packageName" : "com.lms.application.schedule",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-work-schedule-app-service",
+    "label" : "GetWorkScheduleAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Work Schedule",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/schedule/GetWorkScheduleAppService.kt",
+      "className" : "GetWorkScheduleAppService",
+      "packageName" : "com.lms.application.schedule",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-work-schedules-by-date-range-app-service",
+    "label" : "GetWorkSchedulesByDateRangeAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Work Schedules By Date Range",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/schedule/GetWorkSchedulesByDateRangeAppService.kt",
+      "className" : "GetWorkSchedulesByDateRangeAppService",
+      "packageName" : "com.lms.application.schedule",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-work-schedules-by-employee-app-service",
+    "label" : "GetWorkSchedulesByEmployeeAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Work Schedules By Employee",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/schedule/GetWorkSchedulesByEmployeeAppService.kt",
+      "className" : "GetWorkSchedulesByEmployeeAppService",
+      "packageName" : "com.lms.application.schedule",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-work-schedules-by-store-app-service",
+    "label" : "GetWorkSchedulesByStoreAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Work Schedules By Store",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/schedule/GetWorkSchedulesByStoreAppService.kt",
+      "className" : "GetWorkSchedulesByStoreAppService",
+      "packageName" : "com.lms.application.schedule",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "update-work-schedule-app-service",
+    "label" : "UpdateWorkScheduleAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Update Work Schedule",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/schedule/UpdateWorkScheduleAppService.kt",
+      "className" : "UpdateWorkScheduleAppService",
+      "packageName" : "com.lms.application.schedule",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "create-store-app-service",
+    "label" : "CreateStoreAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Create Store",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/store/CreateStoreAppService.kt",
+      "className" : "CreateStoreAppService",
+      "packageName" : "com.lms.application.store",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "delete-store-app-service",
+    "label" : "DeleteStoreAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Delete Store",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/store/DeleteStoreAppService.kt",
+      "className" : "DeleteStoreAppService",
+      "packageName" : "com.lms.application.store",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-all-stores-app-service",
+    "label" : "GetAllStoresAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get All Stores",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/store/GetAllStoresAppService.kt",
+      "className" : "GetAllStoresAppService",
+      "packageName" : "com.lms.application.store",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "get-store-app-service",
+    "label" : "GetStoreAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Get Store",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/store/GetStoreAppService.kt",
+      "className" : "GetStoreAppService",
+      "packageName" : "com.lms.application.store",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "update-store-app-service",
+    "label" : "UpdateStoreAppService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Update Store",
+    "codeMapping" : {
+      "filePath" : "application/src/main/kotlin/com/lms/application/store/UpdateStoreAppService.kt",
+      "className" : "UpdateStoreAppService",
+      "packageName" : "com.lms.application.store",
+      "annotations" : [ "@Service", "@Transactional" ]
+    }
+  }, {
+    "id" : "demo-data-initializer",
+    "label" : "DemoDataInitializer",
+    "type" : "adapter",
+    "layer" : "infrastructure",
+    "subtitle" : "Infrastructure Adapter",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/config/DemoDataInitializer.kt",
+      "className" : "DemoDataInitializer",
+      "packageName" : "com.lms.infrastructure.config",
+      "annotations" : [ "@Component", "@Profile" ]
+    }
+  }, {
+    "id" : "attendance-record-entity-listener",
+    "label" : "AttendanceRecordEntityListener",
+    "type" : "adapter",
+    "layer" : "infrastructure",
+    "subtitle" : "Infrastructure Adapter",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/attendance/AttendanceRecordEntityListener.kt",
+      "className" : "AttendanceRecordEntityListener",
+      "packageName" : "com.lms.infrastructure.persistence.attendance",
+      "annotations" : [ "@Component" ]
+    }
+  }, {
+    "id" : "audit-log-repository-impl",
+    "label" : "AuditLogRepositoryImpl",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/auditlog/AuditLogRepositoryImpl.kt",
+      "className" : "AuditLogRepositoryImpl",
+      "packageName" : "com.lms.infrastructure.persistence.auditlog",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "jpa-audit-log-repository",
+    "label" : "JpaAuditLogRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/auditlog/JpaAuditLogRepository.kt",
+      "className" : "JpaAuditLogRepository",
+      "packageName" : "com.lms.infrastructure.persistence.auditlog"
+    }
+  }, {
+    "id" : "jpa-payroll-batch-history-repository",
+    "label" : "JpaPayrollBatchHistoryRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/jpa/JpaPayrollBatchHistoryRepository.kt",
+      "className" : "JpaPayrollBatchHistoryRepository",
+      "packageName" : "com.lms.infrastructure.persistence.jpa"
+    }
+  }, {
+    "id" : "attendance-record-jpa-repository",
+    "label" : "AttendanceRecordJpaRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/AttendanceRecordRepositoryImpl.kt",
+      "className" : "AttendanceRecordJpaRepository",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "employee-jpa-repository",
+    "label" : "EmployeeJpaRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/EmployeeJpaRepository.kt",
+      "className" : "EmployeeJpaRepository",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "employee-jpa-repository-interface",
+    "label" : "EmployeeJpaRepositoryInterface",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/EmployeeRepositoryImpl.kt",
+      "className" : "EmployeeJpaRepositoryInterface",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "leave-request-jpa-repository",
+    "label" : "LeaveRequestJpaRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/LeaveRequestRepositoryImpl.kt",
+      "className" : "LeaveRequestJpaRepository",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "payroll-batch-history-repository-impl",
+    "label" : "PayrollBatchHistoryRepositoryImpl",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/PayrollBatchHistoryRepositoryImpl.kt",
+      "className" : "PayrollBatchHistoryRepositoryImpl",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "payroll-detail-jpa-repository",
+    "label" : "PayrollDetailJpaRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/PayrollDetailRepositoryImpl.kt",
+      "className" : "PayrollDetailJpaRepository",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "payroll-policy-jpa-repository",
+    "label" : "PayrollPolicyJpaRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/PayrollPolicyRepositoryImpl.kt",
+      "className" : "PayrollPolicyJpaRepository",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "payroll-jpa-repository",
+    "label" : "PayrollJpaRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/PayrollRepositoryImpl.kt",
+      "className" : "PayrollJpaRepository",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "store-jpa-repository",
+    "label" : "StoreJpaRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/StoreJpaRepository.kt",
+      "className" : "StoreJpaRepository",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "store-jpa-repository-interface",
+    "label" : "StoreJpaRepositoryInterface",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/StoreRepositoryImpl.kt",
+      "className" : "StoreJpaRepositoryInterface",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "user-jpa-repository",
+    "label" : "UserJpaRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/UserJpaRepository.kt",
+      "className" : "UserJpaRepository",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "user-repository-impl",
+    "label" : "UserRepositoryImpl",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/UserRepositoryImpl.kt",
+      "className" : "UserRepositoryImpl",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository", "@Transactional" ]
+    }
+  }, {
+    "id" : "work-schedule-jpa-repository",
+    "label" : "WorkScheduleJpaRepository",
+    "type" : "repository",
+    "layer" : "infrastructure",
+    "subtitle" : "Repository",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/persistence/repository/WorkScheduleRepositoryImpl.kt",
+      "className" : "WorkScheduleJpaRepository",
+      "packageName" : "com.lms.infrastructure.persistence.repository",
+      "annotations" : [ "@Repository" ]
+    }
+  }, {
+    "id" : "custom-user-details-service",
+    "label" : "CustomUserDetailsService",
+    "type" : "usecase",
+    "layer" : "application",
+    "subtitle" : "Custom User Details",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/security/CustomUserDetailsService.kt",
+      "className" : "CustomUserDetailsService",
+      "packageName" : "com.lms.infrastructure.security",
+      "annotations" : [ "@Service" ]
+    }
+  }, {
+    "id" : "jwt-token-provider",
+    "label" : "JwtTokenProvider",
+    "type" : "adapter",
+    "layer" : "infrastructure",
+    "subtitle" : "Infrastructure Adapter",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/security/jwt/JwtTokenProvider.kt",
+      "className" : "JwtTokenProvider",
+      "packageName" : "com.lms.infrastructure.security.jwt",
+      "annotations" : [ "@Component" ]
+    }
+  }, {
+    "id" : "domain-context-argument-resolver",
+    "label" : "DomainContextArgumentResolver",
+    "type" : "adapter",
+    "layer" : "infrastructure",
+    "subtitle" : "Infrastructure Adapter",
+    "codeMapping" : {
+      "filePath" : "infrastructure/src/main/kotlin/com/lms/infrastructure/web/DomainContextArgumentResolver.kt",
+      "className" : "DomainContextArgumentResolver",
+      "packageName" : "com.lms.infrastructure.web",
+      "annotations" : [ "@Component" ]
+    }
+  }, {
+    "id" : "attendance-controller",
+    "label" : "AttendanceController",
+    "type" : "controller",
+    "layer" : "presentation",
+    "subtitle" : "REST API endpoint",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/interfaces/web/controller/AttendanceController.kt",
+      "className" : "AttendanceController",
+      "packageName" : "com.lms.interfaces.web.controller",
+      "annotations" : [ "@Tag", "@RestController", "@RequestMapping" ]
+    }
+  }, {
+    "id" : "auth-controller",
+    "label" : "AuthController",
+    "type" : "controller",
+    "layer" : "presentation",
+    "subtitle" : "REST API endpoint",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/interfaces/web/controller/AuthController.kt",
+      "className" : "AuthController",
+      "packageName" : "com.lms.interfaces.web.controller",
+      "annotations" : [ "@Tag", "@RestController", "@RequestMapping" ]
+    }
+  }, {
+    "id" : "employee-controller",
+    "label" : "EmployeeController",
+    "type" : "controller",
+    "layer" : "presentation",
+    "subtitle" : "REST API endpoint",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/interfaces/web/controller/EmployeeController.kt",
+      "className" : "EmployeeController",
+      "packageName" : "com.lms.interfaces.web.controller",
+      "annotations" : [ "@Tag", "@RestController", "@RequestMapping" ]
+    }
+  }, {
+    "id" : "health-controller",
+    "label" : "HealthController",
+    "type" : "controller",
+    "layer" : "presentation",
+    "subtitle" : "REST API endpoint",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/interfaces/web/controller/HealthController.kt",
+      "className" : "HealthController",
+      "packageName" : "com.lms.interfaces.web.controller",
+      "annotations" : [ "@RestController", "@RequestMapping" ]
+    }
+  }, {
+    "id" : "leave-request-controller",
+    "label" : "LeaveRequestController",
+    "type" : "controller",
+    "layer" : "presentation",
+    "subtitle" : "REST API endpoint",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/interfaces/web/controller/LeaveRequestController.kt",
+      "className" : "LeaveRequestController",
+      "packageName" : "com.lms.interfaces.web.controller",
+      "annotations" : [ "@Tag", "@RestController", "@RequestMapping" ]
+    }
+  }, {
+    "id" : "payroll-controller",
+    "label" : "PayrollController",
+    "type" : "controller",
+    "layer" : "presentation",
+    "subtitle" : "REST API endpoint",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/interfaces/web/controller/PayrollController.kt",
+      "className" : "PayrollController",
+      "packageName" : "com.lms.interfaces.web.controller",
+      "annotations" : [ "@Tag", "@RestController", "@RequestMapping" ]
+    }
+  }, {
+    "id" : "payroll-policy-controller",
+    "label" : "PayrollPolicyController",
+    "type" : "controller",
+    "layer" : "presentation",
+    "subtitle" : "REST API endpoint",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/interfaces/web/controller/PayrollPolicyController.kt",
+      "className" : "PayrollPolicyController",
+      "packageName" : "com.lms.interfaces.web.controller",
+      "annotations" : [ "@Tag", "@RestController", "@RequestMapping" ]
+    }
+  }, {
+    "id" : "store-controller",
+    "label" : "StoreController",
+    "type" : "controller",
+    "layer" : "presentation",
+    "subtitle" : "REST API endpoint",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/interfaces/web/controller/StoreController.kt",
+      "className" : "StoreController",
+      "packageName" : "com.lms.interfaces.web.controller",
+      "annotations" : [ "@Tag", "@RestController", "@RequestMapping" ]
+    }
+  }, {
+    "id" : "work-schedule-controller",
+    "label" : "WorkScheduleController",
+    "type" : "controller",
+    "layer" : "presentation",
+    "subtitle" : "REST API endpoint",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/interfaces/web/controller/WorkScheduleController.kt",
+      "className" : "WorkScheduleController",
+      "packageName" : "com.lms.interfaces.web.controller",
+      "annotations" : [ "@Tag", "@RestController", "@RequestMapping" ]
+    }
+  }, {
+    "id" : "lms-application",
+    "label" : "LmsApplication",
+    "type" : "entity",
+    "layer" : "domain",
+    "subtitle" : "Entity",
+    "codeMapping" : {
+      "filePath" : "interfaces/src/main/kotlin/com/lms/LmsApplication.kt",
+      "className" : "LmsApplication",
+      "packageName" : "com.lms",
+      "annotations" : [ "@SpringBootApplication" ]
+    }
+  } ],
+  "edges" : [ {
+    "from" : "attendance-record",
+    "to" : "attendance-record-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "attendance-record",
+    "to" : "employee-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "attendance-record",
+    "to" : "work-schedule-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "attendance-record",
+    "to" : "attendance-time",
+    "type" : "depends_on"
+  }, {
+    "from" : "attendance-record",
+    "to" : "attendance-status",
+    "type" : "depends_on"
+  }, {
+    "from" : "audit-log",
+    "to" : "audit-log-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "audit-log",
+    "to" : "entity-type",
+    "type" : "depends_on"
+  }, {
+    "from" : "audit-log",
+    "to" : "action-type",
+    "type" : "depends_on"
+  }, {
+    "from" : "employee",
+    "to" : "employee-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "employee",
+    "to" : "user-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "employee",
+    "to" : "employee-name",
+    "type" : "depends_on"
+  }, {
+    "from" : "employee",
+    "to" : "employee-type",
+    "type" : "depends_on"
+  }, {
+    "from" : "employee",
+    "to" : "store-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "employee",
+    "to" : "remaining-leave",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll",
+    "to" : "payroll-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll",
+    "to" : "employee-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll",
+    "to" : "payroll-period",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll",
+    "to" : "payroll-amount",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-batch-history",
+    "to" : "payroll-period",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-batch-history",
+    "to" : "store-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-detail",
+    "to" : "payroll-detail-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-detail",
+    "to" : "payroll-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-detail",
+    "to" : "work-type",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-policy",
+    "to" : "payroll-policy-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-policy",
+    "to" : "policy-type",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-policy",
+    "to" : "policy-multiplier",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-policy",
+    "to" : "policy-effective-period",
+    "type" : "depends_on"
+  }, {
+    "from" : "work-schedule",
+    "to" : "work-schedule-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "work-schedule",
+    "to" : "employee-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "work-schedule",
+    "to" : "store-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "work-schedule",
+    "to" : "work-date",
+    "type" : "depends_on"
+  }, {
+    "from" : "work-schedule",
+    "to" : "work-time",
+    "type" : "depends_on"
+  }, {
+    "from" : "store",
+    "to" : "store-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "store",
+    "to" : "store-name",
+    "type" : "depends_on"
+  }, {
+    "from" : "store",
+    "to" : "store-location",
+    "type" : "depends_on"
+  }, {
+    "from" : "user",
+    "to" : "user-id",
+    "type" : "depends_on"
+  }, {
+    "from" : "user",
+    "to" : "email",
+    "type" : "depends_on"
+  }, {
+    "from" : "user",
+    "to" : "password",
+    "type" : "depends_on"
+  }, {
+    "from" : "user",
+    "to" : "role",
+    "type" : "depends_on"
+  }, {
+    "from" : "adjust-attendance-app-service",
+    "to" : "attendance-record-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "check-in-app-service",
+    "to" : "attendance-record-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "check-out-app-service",
+    "to" : "attendance-record-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-attendance-record-app-service",
+    "to" : "attendance-record-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-attendance-records-by-store-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-attendance-records-by-store-app-service",
+    "to" : "attendance-record-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-my-attendance-records-app-service",
+    "to" : "attendance-record-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "login-app-service",
+    "to" : "user-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "login-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "login-app-service",
+    "to" : "token-provider",
+    "type" : "depends_on"
+  }, {
+    "from" : "refresh-token-app-service",
+    "to" : "user-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "refresh-token-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "refresh-token-app-service",
+    "to" : "token-provider",
+    "type" : "depends_on"
+  }, {
+    "from" : "register-app-service",
+    "to" : "user-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "create-employee-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "deactivate-employee-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-all-employees-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-employee-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-employees-by-store-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "update-employee-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "approve-leave-request-app-service",
+    "to" : "leave-request-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "approve-leave-request-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "cancel-leave-request-app-service",
+    "to" : "leave-request-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "cancel-leave-request-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "create-leave-request-app-service",
+    "to" : "leave-request-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "create-leave-request-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "create-leave-request-app-service",
+    "to" : "leave-policy-service",
+    "type" : "invokes"
+  }, {
+    "from" : "get-leave-requests-by-store-app-service",
+    "to" : "leave-request-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-leave-requests-by-store-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-leave-requests-by-store-app-service",
+    "to" : "store-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-my-leave-requests-app-service",
+    "to" : "leave-request-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-pending-leave-requests-app-service",
+    "to" : "leave-request-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "reject-leave-request-app-service",
+    "to" : "leave-request-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "calculate-payroll-app-service",
+    "to" : "payroll-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "calculate-payroll-app-service",
+    "to" : "payroll-detail-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "calculate-payroll-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "calculate-payroll-app-service",
+    "to" : "attendance-record-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "calculate-payroll-app-service",
+    "to" : "leave-request-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "calculate-payroll-app-service",
+    "to" : "payroll-policy-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "calculate-payroll-app-service",
+    "to" : "payroll-calculation-engine",
+    "type" : "depends_on"
+  }, {
+    "from" : "create-payroll-policy-app-service",
+    "to" : "payroll-policy-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "delete-payroll-policy-app-service",
+    "to" : "payroll-policy-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "execute-payroll-batch-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "execute-payroll-batch-app-service",
+    "to" : "payroll-batch-history-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "execute-payroll-batch-app-service",
+    "to" : "calculate-payroll-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "get-my-payroll-app-service",
+    "to" : "payroll-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-payroll-app-service",
+    "to" : "payroll-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-payroll-app-service",
+    "to" : "payroll-detail-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-payroll-batch-histories-app-service",
+    "to" : "payroll-batch-history-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-payroll-policies-app-service",
+    "to" : "payroll-policy-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-payrolls-by-period-app-service",
+    "to" : "payroll-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-batch-scheduler",
+    "to" : "execute-payroll-batch-app-service",
+    "type" : "depends_on"
+  }, {
+    "from" : "update-payroll-policy-app-service",
+    "to" : "payroll-policy-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "create-work-schedule-app-service",
+    "to" : "work-schedule-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "create-work-schedule-app-service",
+    "to" : "employee-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "create-work-schedule-app-service",
+    "to" : "store-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "delete-work-schedule-app-service",
+    "to" : "work-schedule-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-work-schedule-app-service",
+    "to" : "work-schedule-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-work-schedules-by-date-range-app-service",
+    "to" : "work-schedule-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-work-schedules-by-employee-app-service",
+    "to" : "work-schedule-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-work-schedules-by-store-app-service",
+    "to" : "work-schedule-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "update-work-schedule-app-service",
+    "to" : "work-schedule-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "create-store-app-service",
+    "to" : "store-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "delete-store-app-service",
+    "to" : "store-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-all-stores-app-service",
+    "to" : "store-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "get-store-app-service",
+    "to" : "store-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "update-store-app-service",
+    "to" : "store-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "demo-data-initializer",
+    "to" : "work-schedule-jpa-repository",
+    "type" : "depends_on"
+  }, {
+    "from" : "audit-log-repository-impl",
+    "to" : "jpa-audit-log-repository",
+    "type" : "depends_on"
+  }, {
+    "from" : "audit-log-repository-impl",
+    "to" : "audit-log-repository",
+    "type" : "implements"
+  }, {
+    "from" : "payroll-batch-history-repository-impl",
+    "to" : "jpa-payroll-batch-history-repository",
+    "type" : "depends_on"
+  }, {
+    "from" : "payroll-batch-history-repository-impl",
+    "to" : "payroll-batch-history-repository",
+    "type" : "implements"
+  }, {
+    "from" : "user-repository-impl",
+    "to" : "user-jpa-repository",
+    "type" : "depends_on"
+  }, {
+    "from" : "user-repository-impl",
+    "to" : "user-repository",
+    "type" : "implements"
+  }, {
+    "from" : "custom-user-details-service",
+    "to" : "user-repository",
+    "type" : "invokes"
+  }, {
+    "from" : "jwt-token-provider",
+    "to" : "token-provider",
+    "type" : "implements"
+  }, {
+    "from" : "attendance-controller",
+    "to" : "check-in-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "attendance-controller",
+    "to" : "check-out-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "attendance-controller",
+    "to" : "get-my-attendance-records-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "attendance-controller",
+    "to" : "get-attendance-records-by-store-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "attendance-controller",
+    "to" : "adjust-attendance-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "auth-controller",
+    "to" : "login-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "auth-controller",
+    "to" : "register-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "auth-controller",
+    "to" : "refresh-token-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "employee-controller",
+    "to" : "create-employee-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "employee-controller",
+    "to" : "get-employee-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "employee-controller",
+    "to" : "get-employees-by-store-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "employee-controller",
+    "to" : "get-all-employees-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "employee-controller",
+    "to" : "update-employee-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "employee-controller",
+    "to" : "deactivate-employee-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "leave-request-controller",
+    "to" : "create-leave-request-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "leave-request-controller",
+    "to" : "approve-leave-request-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "leave-request-controller",
+    "to" : "reject-leave-request-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "leave-request-controller",
+    "to" : "cancel-leave-request-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "leave-request-controller",
+    "to" : "get-my-leave-requests-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "leave-request-controller",
+    "to" : "get-leave-requests-by-store-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "leave-request-controller",
+    "to" : "get-pending-leave-requests-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-controller",
+    "to" : "calculate-payroll-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-controller",
+    "to" : "get-payroll-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-controller",
+    "to" : "get-my-payroll-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-controller",
+    "to" : "get-payrolls-by-period-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-controller",
+    "to" : "execute-payroll-batch-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-controller",
+    "to" : "get-payroll-batch-histories-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-policy-controller",
+    "to" : "create-payroll-policy-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-policy-controller",
+    "to" : "get-payroll-policies-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-policy-controller",
+    "to" : "update-payroll-policy-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-policy-controller",
+    "to" : "delete-payroll-policy-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "store-controller",
+    "to" : "create-store-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "store-controller",
+    "to" : "get-store-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "store-controller",
+    "to" : "get-all-stores-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "store-controller",
+    "to" : "update-store-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "store-controller",
+    "to" : "delete-store-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "work-schedule-controller",
+    "to" : "create-work-schedule-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "work-schedule-controller",
+    "to" : "get-work-schedule-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "work-schedule-controller",
+    "to" : "get-work-schedules-by-employee-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "work-schedule-controller",
+    "to" : "get-work-schedules-by-store-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "work-schedule-controller",
+    "to" : "get-work-schedules-by-date-range-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "work-schedule-controller",
+    "to" : "update-work-schedule-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "work-schedule-controller",
+    "to" : "delete-work-schedule-app-service",
+    "type" : "invokes"
+  }, {
+    "from" : "attendance-record-repository",
+    "to" : "attendance-record",
+    "type" : "invokes"
+  }, {
+    "from" : "audit-log-repository",
+    "to" : "audit-log",
+    "type" : "invokes"
+  }, {
+    "from" : "employee-repository",
+    "to" : "employee",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-batch-history-repository",
+    "to" : "payroll-batch-history",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-detail-repository",
+    "to" : "payroll-detail",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-policy-repository",
+    "to" : "payroll-policy",
+    "type" : "invokes"
+  }, {
+    "from" : "payroll-repository",
+    "to" : "payroll",
+    "type" : "invokes"
+  }, {
+    "from" : "work-schedule-repository",
+    "to" : "work-schedule",
+    "type" : "invokes"
+  }, {
+    "from" : "store-repository",
+    "to" : "store",
+    "type" : "invokes"
+  }, {
+    "from" : "user-repository",
+    "to" : "user",
+    "type" : "invokes"
+  } ]
+}

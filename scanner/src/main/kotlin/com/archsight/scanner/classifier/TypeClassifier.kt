@@ -41,12 +41,18 @@ object TypeClassifier {
 
         // 6. Name patterns (no annotation match)
         return when {
-            name.endsWith("Event") -> "domain_event"
+            name.endsWith("Event") || name.endsWith("DomainEvent") -> "domain_event"
             name.endsWith("Command") -> "command"
+            name.endsWith("Query") -> "query"
             name.endsWith("Policy") || name.endsWith("Saga") -> "policy"
-            name.endsWith("Repository") -> "repository"
+            name.endsWith("Repository") || name.endsWith("RepositoryImpl") -> "repository"
+            name.endsWith("Service") -> "domain_service"
+            name.endsWith("Adapter") || name.endsWith("Client") || name.endsWith("Gateway") -> "adapter"
             annotations.contains("@JvmInline") -> "value_object"
-            else -> "aggregate"
+            name.endsWith("VO") || name.endsWith("Id") -> "value_object"
+            // 도메인 패키지의 일반 클래스는 entity로 (aggregate보다 보수적)
+            meta.packageName.contains(".domain.") || meta.packageName.contains(".model.") -> "entity"
+            else -> "entity"
         }
     }
 }

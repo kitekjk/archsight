@@ -53,6 +53,19 @@ object DependencyResolver {
             }
         }
 
+        // Repository → Aggregate 관계 추론
+        // EmployeeRepository → Employee (이름에서 Repository 접미사를 제거)
+        for (cls in classes) {
+            val type = TypeClassifier.classify(cls)
+            if (type == "repository" && cls.className.endsWith("Repository")) {
+                val aggregateName = cls.className.removeSuffix("Repository")
+                val aggregateClass = classMap[aggregateName]
+                if (aggregateClass != null) {
+                    edges.add(ResolvedEdge(cls.className, aggregateClass.className, "invokes"))
+                }
+            }
+        }
+
         return edges
     }
 

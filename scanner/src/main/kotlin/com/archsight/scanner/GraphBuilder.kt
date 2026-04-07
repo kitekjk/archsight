@@ -35,8 +35,8 @@ object GraphBuilder {
         val resolver = MetaAnnotationResolver(rawClasses)
         val resolved = resolver.resolveAll(rawClasses)
 
-        // 2. Filter out annotation classes
-        val componentClasses = resolved.filter { !it.isAnnotationClass }
+        // 2. Filter out non-architectural classes
+        val componentClasses = resolved.filter { !it.isAnnotationClass && isArchitecturalClass(it) }
 
         // 3. Build nodes
         val nodes = componentClasses.map { meta -> buildNode(meta) }
@@ -109,6 +109,51 @@ object GraphBuilder {
             "command" -> "Command"
             else -> null
         }
+    }
+
+    /** 아키텍처 다이어그램에 보여야 할 타입 */
+    private val ARCHITECTURAL_TYPES = setOf(
+        "controller", "usecase", "aggregate", "domain_service",
+        "repository", "adapter", "policy", "domain_event",
+        "entity", "value_object",
+    )
+
+    /**
+     * 아키텍처 다이어그램에 의미 있는 클래스만 포함.
+     *
+     * 포함: Controller, UseCase, Aggregate, DomainService, Repository, Adapter, Policy, DomainEvent
+     * 제외: DTO, Exception, Config, Mapper, Command, Query, Entity, ValueObject, 기타
+     */
+    private fun isArchitecturalClass(meta: ClassMetadata): Boolean {
+        // 먼저 타입을 분류해서 아키텍처적으로 의미 있는 타입인지 확인
+        val type = TypeClassifier.classify(meta)
+        if (type !in ARCHITECTURAL_TYPES) return false
+
+        val name = meta.className
+        val pkg = meta.packageName
+
+        // infrastructure의 entity/value_object는 JPA 매핑용이므로 제외
+        val layer = LayerClassifier.classify(meta)
+        if (layer == "infrastructure" && type in setOf("entity", "value_object", "aggregate")) return false
+
+        // 이름 패턴으로 추가 제외 (타입 분류를 통과했더라도)
+        val excludeSuffixes = listOf(
+            "Dto", "DTO", "Request", "Response", "Result",
+            "Exception", "Error",
+            "Config", "Configuration", "Properties",
+            "Mapper", "Converter", "Serializer", "Deserializer",
+            "Interceptor", "Filter",
+            "Advice", "Handler",
+            "Base", "Abstract",
+            "Constants", "Const", "Utils", "Util", "Helper",
+        )
+        if (excludeSuffixes.any { name.endsWith(it) }) return false
+
+        // 패키지 패턴으로 제외
+        val excludePackages = listOf(".dto.", ".exception.", ".error.", ".config.", ".common.")
+        if (excludePackages.any { pkg.contains(it) }) return false
+
+        return true
     }
 
     private fun buildUseCaseSubtitle(className: String): String {

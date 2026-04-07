@@ -5,12 +5,15 @@ import { orderBoundedContext } from "./examples/order-bc-graph";
 import { cancelOrderChangeSet } from "./examples/cancel-order-changeset";
 import { lmsBoundedContext } from "./examples/lms-bc-graph";
 import { scmhubBoundedContext } from "./examples/scmhub-bc-graph";
+import lmsScanned from "./examples/lms-scanned.json";
 import { SpecDiagram } from "./components/SpecDiagram";
+import type { BoundedContextGraph } from "./types/spec-metadata";
 
 const DATA_OPTIONS = [
   { key: "order", label: "Order BC (base)" },
   { key: "order-cancel", label: "Order BC + Cancel ChangeSet" },
-  { key: "lms", label: "LMS BC" },
+  { key: "lms", label: "LMS BC (수동)" },
+  { key: "lms-scanned", label: "LMS BC (스캐너)" },
   { key: "scmhub", label: "SCM Hub BC" },
 ] as const;
 
@@ -24,6 +27,8 @@ function buildResolved(key: DataKey) {
       return resolveGraph(orderBoundedContext, cancelOrderChangeSet);
     case "lms":
       return resolveGraph(lmsBoundedContext);
+    case "lms-scanned":
+      return resolveGraph(lmsScanned as unknown as BoundedContextGraph);
     case "scmhub":
       return resolveGraph(scmhubBoundedContext);
   }

@@ -10,7 +10,7 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
-import type { ResolvedGraph, ChangeStatus } from "../types/spec-metadata";
+import type { ResolvedGraph, ChangeStatus, DddLayer, DddComponentType } from "../types/spec-metadata";
 import { analyzeImpact } from "../core/resolve-graph";
 import { useGraphLayout } from "../hooks/useGraphLayout";
 import { DddLayerNode } from "./DddLayerNode";
@@ -28,6 +28,11 @@ const nodeTypes: NodeTypes = { ddd: DddLayerNode };
 const edgeTypes: EdgeTypes = { ddd: DddEdge };
 
 const ALL_STATUSES: ChangeStatus[] = ["existing", "new", "modified", "affected", "deprecated"];
+const ALL_LAYERS: DddLayer[] = ["presentation", "application", "domain", "infrastructure"];
+const ALL_TYPES: DddComponentType[] = [
+  "controller", "usecase", "aggregate", "domain_service", "repository",
+  "adapter", "policy", "domain_event", "entity", "value_object", "command", "query",
+];
 
 export function SpecDiagram({ resolved }: SpecDiagramProps) {
   const { nodes, edges, layerBounds } = useGraphLayout(resolved);
@@ -35,6 +40,8 @@ export function SpecDiagram({ resolved }: SpecDiagramProps) {
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [detailNodeId, setDetailNodeId] = useState<string | null>(null);
   const [activeFilters, setActiveFilters] = useState<Set<ChangeStatus>>(new Set(ALL_STATUSES));
+  const [activeLayers, setActiveLayers] = useState<Set<DddLayer>>(new Set(ALL_LAYERS));
+  const [activeTypes, setActiveTypes] = useState<Set<DddComponentType>>(new Set(ALL_TYPES));
 
   // 직접 연결된 1-hop만 하이라이트 (전체 BFS는 너무 넓어서 의미 없음)
   const impactResult = useMemo(() => {
@@ -70,11 +77,23 @@ export function SpecDiagram({ resolved }: SpecDiagramProps) {
   const onFilterToggle = useCallback((status: ChangeStatus) => {
     setActiveFilters((prev) => {
       const next = new Set(prev);
-      if (next.has(status)) {
-        next.delete(status);
-      } else {
-        next.add(status);
-      }
+      if (next.has(status)) { next.delete(status); } else { next.add(status); }
+      return next;
+    });
+  }, []);
+
+  const onLayerToggle = useCallback((layer: DddLayer) => {
+    setActiveLayers((prev) => {
+      const next = new Set(prev);
+      if (next.has(layer)) { next.delete(layer); } else { next.add(layer); }
+      return next;
+    });
+  }, []);
+
+  const onTypeToggle = useCallback((type: DddComponentType) => {
+    setActiveTypes((prev) => {
+      const next = new Set(prev);
+      if (next.has(type)) { next.delete(type); } else { next.add(type); }
       return next;
     });
   }, []);
@@ -83,18 +102,34 @@ export function SpecDiagram({ resolved }: SpecDiagramProps) {
     setSelectedNodeId(null);
   }, []);
 
-  // Filtered nodes/edges based on activeFilters
+  // Layer/type counts for FilterToolbar
+  const layerCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    resolved.nodes.forEach((n) => { counts[n.layer] = (counts[n.layer] ?? 0) + 1; });
+    return counts;
+  }, [resolved.nodes]);
+
+  const typeCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    resolved.nodes.forEach((n) => { counts[n.type] = (counts[n.type] ?? 0) + 1; });
+    return counts;
+  }, [resolved.nodes]);
+
+  // Filtered nodes/edges based on activeFilters + activeLayers + activeTypes
   const visibleNodeIds = useMemo(() => {
     return new Set(
       nodes
         .filter((node) => {
           const resolvedNode = resolved.nodes.find((n) => n.id === node.id);
-          const status: ChangeStatus = resolvedNode?.status ?? "existing";
-          return activeFilters.has(status);
+          if (!resolvedNode) return false;
+          const status: ChangeStatus = resolvedNode.status ?? "existing";
+          return activeFilters.has(status)
+            && activeLayers.has(resolvedNode.layer as DddLayer)
+            && activeTypes.has(resolvedNode.type as DddComponentType);
         })
         .map((n) => n.id)
     );
-  }, [nodes, resolved.nodes, activeFilters]);
+  }, [nodes, resolved.nodes, activeFilters, activeLayers, activeTypes]);
 
   const filteredNodes = useMemo(
     () => nodes.filter((node) => visibleNodeIds.has(node.id)),
@@ -159,6 +194,12 @@ export function SpecDiagram({ resolved }: SpecDiagramProps) {
         stats={resolved.stats}
         activeFilters={activeFilters}
         onToggle={onFilterToggle}
+        layerCounts={layerCounts}
+        activeLayers={activeLayers}
+        onLayerToggle={onLayerToggle}
+        typeCounts={typeCounts}
+        activeTypes={activeTypes}
+        onTypeToggle={onTypeToggle}
       />
       <div style={{ flex: 1, display: "flex", flexDirection: "row", overflow: "hidden" }}>
         <div style={{ flex: 1, position: "relative" }}>
