@@ -18,7 +18,7 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/viewer/*"]
     }
   },
   "include": ["src/**/*"],
